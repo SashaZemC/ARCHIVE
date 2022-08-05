@@ -1,0 +1,15 @@
+	/*	for (int j = 0; (j < alphabet_string.GetLength()); j++)//отрезает первое слово до пробела
+		{
+			alphabet[0] = alphabet_string.GetAt(j);
+			if (alphabet[0] != space[1])buff1 += alphabet_string[j];
+			else break;
+		}
+
+		char buff1_char[20];
+		for (int q = 0; q < buff1.GetLength(); q++)
+		{
+			buff1_char[q] = buff1.GetAt(q);
+		}
+		
+*/
+
