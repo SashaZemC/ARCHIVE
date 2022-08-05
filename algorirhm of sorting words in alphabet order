@@ -1,3 +1,14 @@
+CString input_string, ms, t;
+	CString alphabet_string, in_order_string;
+	int word_counter = 0;
+	char alphabet[5];
+	char words[90][10];
+	char word_buffer[1][10];
+	char letter_arr[33];
+	bool fg = false;
+
+
+
 for (int i = 0; i < input_string.GetLength(); i++)
 			{
 				words[word_counter][i] = input_string.GetAt(i);
