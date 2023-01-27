@@ -1,0 +1,29 @@
+//variables in .h file
+	CString ms;
+	CString All_Lines;
+	CStringArray settingsArray;
+
+//.cpp file code
+
+	CStdioFile read_setting_file(L"settings.txt", CFile::modeRead); //instead of settings.txt put there your file name
+	while (read_setting_file.ReadString(All_Lines))
+	{
+		settingsArray.Add(All_Lines);
+	}
+	read_setting_file.Close();
+  
+  settingsArray[1] = ms; // ms is a message that replace information in string №2(iteration in array starts with 0)
+  //always remember that array has limited amount of cells, if you address to indefinited cell, this will lead to an error in the code
+  ms = settingsArray[0]; //settingArray[0] is a text, which you want to put in first string in txt file
+	for (int i = 1; i < settingsArray.GetSize(); i++)
+	{
+		ms += "\n";
+		ms += settingsArray[i];
+	}
+
+	CStdioFile write_setting_in_file(L"recreate.txt", CFile::modeCreate| CFile::modeWrite);
+	write_setting_in_file.WriteString(ms);      //algorithn of writing inf in file:
+	write_setting_in_file.Flush();              //1. create new file with any name
+	write_setting_in_file.Close();              //2. write all inf in it
+	remove("settings.txt");                     //3. remove old file, use method remove()
+	rename("recreate.txt", "settings.txt");     //4. rename new file(point 1-2) on  the name of the old file, use method rename()
