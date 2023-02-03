@@ -11,19 +11,26 @@
 		settingsArray.Add(All_Lines);
 	}
 	read_setting_file.Close();
-  
-  settingsArray[1] = ms; // ms is a message that replace information in string №2(iteration in array starts with 0)
+
+	ms += user_input_file_name;
+	if (!((user_input_file_name[user_input_file_name.GetLength() - 1] == 't') && (user_input_file_name[user_input_file_name.GetLength() - 2] == 'x') &&
+		(user_input_file_name[user_input_file_name.GetLength() - 3] == 't') && (user_input_file_name[user_input_file_name.GetLength() - 4] == '.')))ms += ".txt";
+	//example of string user_input_file_name MyFileName and iteration in file and array starts from 0, 
+	//user_input_file_name[user_input_file_name.GetLength() - 1] is the last symbol "e", ...[user_input_file_name.GetLength() - 2] is "m"
+	
+	settingsArray[1] = ms; // ms is a message with a filename that replace information in string №2(iteration in array starts with 0)
   //always remember that array has limited amount of cells, if you address to indefinited cell, this will lead to an error in the code
-  ms = settingsArray[0]; //settingArray[0] is a text, which you want to put in first string in txt file
+
+	ms = settingsArray[0]; //settingArray[0] is a text, which you want to put in first string in txt file
 	for (int i = 1; i < settingsArray.GetSize(); i++)
 	{
 		ms += "\n";
 		ms += settingsArray[i];
 	}
 
-	CStdioFile write_setting_in_file(L"recreate.txt", CFile::modeCreate| CFile::modeWrite);
+	CStdioFile write_setting_in_file(L"recreate.txt", CFile::modeCreate | CFile::modeWrite);
 	write_setting_in_file.WriteString(ms);      //algorithn of writing inf in file:
 	write_setting_in_file.Flush();              //1. create new file with any name
 	write_setting_in_file.Close();              //2. write all inf in it
-	remove("settings.txt");                     //3. remove old file, use method remove()
-	rename("recreate.txt", "settings.txt");     //4. rename new file(point 1-2) on  the name of the old file, use method rename()
+	remove("settings.txt");					    //3. remove old file, use method remove()
+	rename("recreate.txt", "settings.txt");     //4. rename new file(point 1-2) on  the name of the old file, use method rename() 
