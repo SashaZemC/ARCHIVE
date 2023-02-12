@@ -1,0 +1,26 @@
+At first, here is a link to res where I found this method https://stackoverflow.com/questions/25186805/access-variable-from-another-class-in-c
+
+***.h file code
+
+public:
+	int error_type;
+  
+***.cpp file code
+
+			Training_Dialog_Panel errorObject;  // create an object 
+			errorObject.error_type = 2;         // assign a value to an object's variable
+			UserErrorDialog errorDialog;        // create an object of class where you want to use variable(variable name error_type)
+			errorDialog.ReadErrorType(errorObject); //method that assing error_type value to variable in UserErrorDialog class
+			errorDialog.DoModal();                  //call dialogPanel of UserErrorDialog class
+
+
+UserErrorDialog.h file code
+public:
+	afx_msg void ReadErrorType(const Training_Dialog_Panel &errorObject);
+
+UserErrorDialog.cpp file code
+void UserErrorDialog::ReadErrorType(const Training_Dialog_Panel &errorObject)
+{
+	int error_type1 = errorObject.error_type;
+
+}
