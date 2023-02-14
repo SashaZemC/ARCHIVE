@@ -1,0 +1,36 @@
+This is a .cpp file of a class ff. Window created by this class has an icon, look at the code and copy some parts to add an icon to your window.
+
+
+UserErrorDialog::Your'sClassName(CWnd* pParent /*=nullptr*/)
+	: CDialog(IDD_DIALOG8, pParent)
+	, E1(_T(""))
+{
+	m_hIcon = AfxGetApp()->LoadIcon(IDI_ICON3); // add this string to load icon into variable
+}
+.........
+BOOL Your'sClassName::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// TODO:  Add extra initialization here
+
+	SetIcon(m_hIcon, TRUE);	  // set icon on window
+	SetIcon(m_hIcon, FALSE);
+
+	return TRUE;  // return TRUE unless you set the focus to a control
+				  // EXCEPTION: OCX Property Pages should return FALSE
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
