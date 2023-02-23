@@ -1,5 +1,8 @@
 This is a .cpp file of a class ff. Window created by this class has an icon, look at the code and copy some parts to add an icon to your window.
 
+.h file 
+	HICON m_hIcon;
+
 
 UserErrorDialog::Your'sClassName(CWnd* pParent /*=nullptr*/)
 	: CDialog(IDD_DIALOG8, pParent)
