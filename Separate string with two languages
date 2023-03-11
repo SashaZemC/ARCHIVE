@@ -1,0 +1,216 @@
+// I have a new problem: to continue developing my project,
+I need the main application to be able to separate a string containing two messages in different languages.
+
+Here I put the code in console that replaces ' ' on separating symbol(in my apps) '|'. 
+  Description: when app finds a space in the input string, it compares two nearest symbols and if they not from the same language,
+    it replaces this space on '|'. 
+During deviloping this app I created two variants of function CompareStringSymbols(), use that you prefer.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+bool ReplaceSymbol = false;
+
+void CompareStringSymbols(const char a, const char b)
+{
+	int LangTypeA = 0;
+	int LangTypeB = 0;
+
+	//english alphabet
+	if (a == 'a')LangTypeA = 1;		if (a == 'A')LangTypeA = 1;
+	if (a == 'b')LangTypeA = 1;		if (a == 'B')LangTypeA = 1;
+	if (a == 'c')LangTypeA = 1;		if (a == 'C')LangTypeA = 1;
+	if (a == 'd')LangTypeA = 1;		if (a == 'D')LangTypeA = 1;
+	if (a == 'e')LangTypeA = 1;		if (a == 'E')LangTypeA = 1;
+	if (a == 'f')LangTypeA = 1;		if (a == 'F')LangTypeA = 1;
+	if (a == 'g')LangTypeA = 1;		if (a == 'G')LangTypeA = 1;
+	if (a == 'i')LangTypeA = 1;		if (a == 'I')LangTypeA = 1;
+	if (a == 'j')LangTypeA = 1;		if (a == 'J')LangTypeA = 1;
+	if (a == 'k')LangTypeA = 1;		if (a == 'K')LangTypeA = 1;
+	if (a == 'l')LangTypeA = 1;		if (a == 'L')LangTypeA = 1;
+	if (a == 'm')LangTypeA = 1;		if (a == 'M')LangTypeA = 1;
+	if (a == 'n')LangTypeA = 1;		if (a == 'N')LangTypeA = 1;
+	if (a == 'o')LangTypeA = 1;		if (a == 'O')LangTypeA = 1;
+	if (a == 'p')LangTypeA = 1;		if (a == 'P')LangTypeA = 1;
+	if (a == 'q')LangTypeA = 1;		if (a == 'Q')LangTypeA = 1;
+	if (a == 'r')LangTypeA = 1;		if (a == 'R')LangTypeA = 1;
+	if (a == 's')LangTypeA = 1;		if (a == 'S')LangTypeA = 1;
+	if (a == 't')LangTypeA = 1;		if (a == 'T')LangTypeA = 1;
+	if (a == 'u')LangTypeA = 1;		if (a == 'U')LangTypeA = 1;
+	if (a == 'v')LangTypeA = 1;		if (a == 'V')LangTypeA = 1;
+	if (a == 'w')LangTypeA = 1;		if (a == 'W')LangTypeA = 1;
+	if (a == 'x')LangTypeA = 1;		if (a == 'X')LangTypeA = 1;
+	if (a == 'y')LangTypeA = 1;		if (a == 'Y')LangTypeA = 1;
+	if (a == 'z')LangTypeA = 1;		if (a == 'Z')LangTypeA = 1;
+
+	if (b == 'a')LangTypeB = 1;		if (b == 'A')LangTypeB = 1;
+	if (b == 'b')LangTypeB = 1;		if (b == 'B')LangTypeB = 1;
+	if (b == 'c')LangTypeB = 1;		if (b == 'C')LangTypeB = 1;
+	if (b == 'd')LangTypeB = 1;		if (b == 'D')LangTypeB = 1;
+	if (b == 'e')LangTypeB = 1;		if (b == 'E')LangTypeB = 1;
+	if (b == 'f')LangTypeB = 1;		if (b == 'F')LangTypeB = 1;
+	if (b == 'g')LangTypeB = 1;		if (b == 'G')LangTypeB = 1;
+	if (b == 'i')LangTypeB = 1;		if (b == 'I')LangTypeB = 1;
+	if (b == 'j')LangTypeB = 1;		if (b == 'J')LangTypeB = 1;
+	if (b == 'k')LangTypeB = 1;		if (b == 'K')LangTypeB = 1;
+	if (b == 'l')LangTypeB = 1;		if (b == 'L')LangTypeB = 1;
+	if (b == 'm')LangTypeB = 1;		if (b == 'M')LangTypeB = 1;
+	if (b == 'n')LangTypeB = 1;		if (b == 'N')LangTypeB = 1;
+	if (b == 'o')LangTypeB = 1;		if (b == 'O')LangTypeB = 1;
+	if (b == 'p')LangTypeB = 1;		if (b == 'P')LangTypeB = 1;
+	if (b == 'q')LangTypeB = 1;		if (b == 'Q')LangTypeB = 1;
+	if (b == 'r')LangTypeB = 1;		if (b == 'R')LangTypeB = 1;
+	if (b == 's')LangTypeB = 1;		if (b == 'S')LangTypeB = 1;
+	if (b == 't')LangTypeB = 1;		if (b == 'T')LangTypeB = 1;
+	if (b == 'u')LangTypeB = 1;		if (b == 'U')LangTypeB = 1;
+	if (b == 'v')LangTypeB = 1;		if (b == 'V')LangTypeB = 1;
+	if (b == 'w')LangTypeB = 1;		if (b == 'W')LangTypeB = 1;
+	if (b == 'x')LangTypeB = 1;		if (b == 'X')LangTypeB = 1;
+	if (b == 'y')LangTypeB = 1;		if (b == 'Y')LangTypeB = 1;
+	if (b == 'z')LangTypeB = 1;		if (b == 'Z')LangTypeB = 1;
+
+	//ukrainian alphabet
+	if (a == 'а')LangTypeA = 2;		if (a == 'А')LangTypeA = 2;
+	if (a == 'б')LangTypeA = 2;		if (a == 'Б')LangTypeA = 2;
+	if (a == 'в')LangTypeA = 2;		if (a == 'В')LangTypeA = 2;
+	if (a == 'г')LangTypeA = 2;		if (a == 'Г')LangTypeA = 2;
+	if (a == 'ґ')LangTypeA = 2;		if (a == 'Ґ')LangTypeA = 2;
+	if (a == 'д')LangTypeA = 2;		if (a == 'Д')LangTypeA = 2;
+	if (a == 'е')LangTypeA = 2;		if (a == 'Е')LangTypeA = 2;
+	if (a == 'є')LangTypeA = 2;		if (a == 'Є')LangTypeA = 2;
+	if (a == 'ж')LangTypeA = 2;		if (a == 'Ж')LangTypeA = 2;
+	if (a == 'з')LangTypeA = 2;		if (a == 'З')LangTypeA = 2;
+	if (a == 'и')LangTypeA = 2;		if (a == 'И')LangTypeA = 2;
+	if (a == 'і')LangTypeA = 2;		if (a == 'І')LangTypeA = 2;
+	if (a == 'ї')LangTypeA = 2;		if (a == 'Ї')LangTypeA = 2;
+	if (a == 'й')LangTypeA = 2;		if (a == 'Й')LangTypeA = 2;
+	if (a == 'к')LangTypeA = 2;		if (a == 'К')LangTypeA = 2;
+	if (a == 'л')LangTypeA = 2;		if (a == 'Л')LangTypeA = 2;
+	if (a == 'м')LangTypeA = 2;		if (a == 'М')LangTypeA = 2;
+	if (a == 'н')LangTypeA = 2;		if (a == 'Н')LangTypeA = 2;
+	if (a == 'о')LangTypeA = 2;		if (a == 'О')LangTypeA = 2;
+	if (a == 'п')LangTypeA = 2;		if (a == 'П')LangTypeA = 2;
+	if (a == 'р')LangTypeA = 2;		if (a == 'Р')LangTypeA = 2;
+	if (a == 'с')LangTypeA = 2;		if (a == 'С')LangTypeA = 2;
+	if (a == 'т')LangTypeA = 2;		if (a == 'Т')LangTypeA = 2;
+	if (a == 'у')LangTypeA = 2;		if (a == 'У')LangTypeA = 2;
+	if (a == 'ф')LangTypeA = 2;		if (a == 'Ф')LangTypeA = 2;
+	if (a == 'х')LangTypeA = 2;		if (a == 'Ч')LangTypeA = 2;
+	if (a == 'ц')LangTypeA = 2;		if (a == 'Ц')LangTypeA = 2;
+	if (a == 'ч')LangTypeA = 2;		if (a == 'Ч')LangTypeA = 2;
+	if (a == 'ш')LangTypeA = 2;		if (a == 'Ш')LangTypeA = 2;
+	if (a == 'щ')LangTypeA = 2;		if (a == 'Щ')LangTypeA = 2;
+	if (a == 'ь')LangTypeA = 2;		if (a == 'Ь')LangTypeA = 2;
+	if (a == 'ю')LangTypeA = 2;		if (a == 'Ю')LangTypeA = 2;
+	if (a == 'я')LangTypeA = 2;		if (a == 'Я')LangTypeA = 2;
+	
+	if (b == 'а')LangTypeB = 2;		if (b == 'А')LangTypeB = 2;
+	if (b == 'б')LangTypeB = 2;		if (b == 'Б')LangTypeB = 2;
+	if (b == 'в')LangTypeB = 2;		if (b == 'В')LangTypeB = 2;
+	if (b == 'г')LangTypeB = 2;		if (b == 'Г')LangTypeB = 2;
+	if (b == 'ґ')LangTypeB = 2;		if (b == 'Ґ')LangTypeB = 2;
+	if (b == 'д')LangTypeB = 2;		if (b == 'Д')LangTypeB = 2;
+	if (b == 'е')LangTypeB = 2;		if (b == 'Е')LangTypeB = 2;
+	if (b == 'є')LangTypeB = 2;		if (b == 'Є')LangTypeB = 2;
+	if (b == 'ж')LangTypeB = 2;		if (b == 'Ж')LangTypeB = 2;
+	if (b == 'з')LangTypeB = 2;		if (b == 'З')LangTypeB = 2;
+	if (b == 'и')LangTypeB = 2;		if (b == 'И')LangTypeB = 2;
+	if (b == 'і')LangTypeB = 2;		if (b == 'І')LangTypeB = 2;
+	if (b == 'ї')LangTypeB = 2;		if (b == 'Ї')LangTypeB = 2;
+	if (b == 'й')LangTypeB = 2;		if (b == 'Й')LangTypeB = 2;
+	if (b == 'к')LangTypeB = 2;		if (b == 'К')LangTypeB = 2;
+	if (b == 'л')LangTypeB = 2;		if (b == 'Л')LangTypeB = 2;
+	if (b == 'м')LangTypeB = 2;		if (b == 'М')LangTypeB = 2;
+	if (b == 'н')LangTypeB = 2;		if (b == 'Н')LangTypeB = 2;
+	if (b == 'о')LangTypeB = 2;		if (b == 'О')LangTypeB = 2;
+	if (b == 'п')LangTypeB = 2;		if (b == 'П')LangTypeB = 2;
+	if (b == 'р')LangTypeB = 2;		if (b == 'Р')LangTypeB = 2;
+	if (b == 'с')LangTypeB = 2;		if (b == 'С')LangTypeB = 2;
+	if (b == 'т')LangTypeB = 2;		if (b == 'Т')LangTypeB = 2;
+	if (b == 'у')LangTypeB = 2;		if (b == 'У')LangTypeB = 2;
+	if (b == 'ф')LangTypeB = 2;		if (b == 'Ф')LangTypeB = 2;
+	if (b == 'х')LangTypeB = 2;		if (b == 'Ч')LangTypeB = 2;
+	if (b == 'ц')LangTypeB = 2;		if (b == 'Ц')LangTypeB = 2;
+	if (b == 'ч')LangTypeB = 2;		if (b == 'Ч')LangTypeB = 2;
+	if (b == 'ш')LangTypeB = 2;		if (b == 'Ш')LangTypeB = 2;
+	if (b == 'щ')LangTypeB = 2;		if (b == 'Щ')LangTypeB = 2;
+	if (b == 'ь')LangTypeB = 2;		if (b == 'Ь')LangTypeB = 2;
+	if (b == 'ю')LangTypeB = 2;		if (b == 'Ю')LangTypeB = 2;
+	if (b == 'я')LangTypeB = 2;		if (b == 'Я')LangTypeB = 2;
+
+	if (LangTypeA != LangTypeB)ReplaceSymbol = true;
+}
+
+void CompareStringSymbols1(const char a, const char b)
+{
+	int LangTypeA = 0;
+	int LangTypeB = 0;
+	char EglAlphabet[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'i', 'j', 'k', 'l',
+		'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+					'A', 'B', 'C', 'D', 'E', 'F', 'G', 'I', 'J', 'K', 'L',
+		'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };//50
+
+	char UAAlphabet[] = { 'а', 'б', 'в', 'г', 'ґ', 'д', 'е', 'є', 'ж', 'з', 'и',
+		'і', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц',
+			'ч','ш', 'щ', 'ь', 'ю', 'я',
+						'А', 'Б', 'В', 'Г', 'Ґ', 'Д', 'Е', 'Є', 'Ж', 'З', 'И',
+		'І', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц',
+			'Ч', 'Ш', 'Щ', 'Ь', 'Ю', 'Я' }; //64
+	
+	for (int i = 0; i < 50; i++)
+	{
+		if (a == EglAlphabet[i])
+		{
+			LangTypeA = 1;
+			break;
+		}
+		else if (a == UAAlphabet[i])
+		{
+			LangTypeA = 2;
+			break;
+		}
+	}
+	
+	for (int i = 0; i < 50; i++)
+	{
+		if (b == EglAlphabet[i])
+		{
+			LangTypeB = 1;
+			break;
+		}
+		else if (b == UAAlphabet[i])
+		{
+			LangTypeB = 2;
+			break;
+		}
+	}
+	if (LangTypeA != LangTypeB)ReplaceSymbol = true;
+}
+
+int main()
+{
+	string buffer;
+	string OutputString;
+
+	cout << "Enter the string with two messages: ";
+	cin >> buffer;
+
+	const string InputString = buffer;
+	for (int i = 0; i < InputString.length(); i++)
+	{
+		if (InputString[i] == '_')
+		{
+			CompareStringSymbols1(InputString[i - 1], InputString[i + 1]);
+			if (ReplaceSymbol) 
+			{
+				buffer[i] = '|'; ReplaceSymbol = false;
+			}
+			
+		}
+	}
+	cout << buffer;
+}
+
+
