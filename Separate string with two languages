@@ -145,45 +145,48 @@ void CompareStringSymbols(const char a, const char b)
 
 void CompareStringSymbols1(const char a, const char b)
 {
+	ReplaceSymbol = false;
 	int LangTypeA = 0;
 	int LangTypeB = 0;
-	char EglAlphabet[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'i', 'j', 'k', 'l',
+	char EglAlphabet[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 		'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-					'A', 'B', 'C', 'D', 'E', 'F', 'G', 'I', 'J', 'K', 'L',
+					'A', 'B', 'C', 'D', 'E', 'F', 'G','H', 'I', 'J', 'K', 'L',
 		'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };//50
-
+	
 	char UAAlphabet[] = { 'а', 'б', 'в', 'г', 'ґ', 'д', 'е', 'є', 'ж', 'з', 'и',
 		'і', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц',
 			'ч','ш', 'щ', 'ь', 'ю', 'я',
 						'А', 'Б', 'В', 'Г', 'Ґ', 'Д', 'Е', 'Є', 'Ж', 'З', 'И',
 		'І', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц',
 			'Ч', 'Ш', 'Щ', 'Ь', 'Ю', 'Я' }; //64
-	
+
 	for (int i = 0; i < 50; i++)
 	{
 		if (a == EglAlphabet[i])
 		{
 			LangTypeA = 1;
-			break;
-		}
-		else if (a == UAAlphabet[i])
-		{
-			LangTypeA = 2;
-			break;
 		}
 	}
-	
 	for (int i = 0; i < 50; i++)
 	{
 		if (b == EglAlphabet[i])
 		{
 			LangTypeB = 1;
-			break;
 		}
-		else if (b == UAAlphabet[i])
+	}
+	for (int i = 0; i < 64; i++)
+	{
+		if (a == UAAlphabet[i])
+		{
+			LangTypeA = 2;
+		}
+
+	}
+	for (int i = 0; i < 64; i++)
+	{
+		if (b == UAAlphabet[i])
 		{
 			LangTypeB = 2;
-			break;
 		}
 	}
 	if (LangTypeA != LangTypeB)ReplaceSymbol = true;
